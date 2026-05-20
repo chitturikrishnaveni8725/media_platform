@@ -5,7 +5,7 @@ conn=mysql.connector.connect(
     
     host=st.secrets["MYSQL_HOST"],
     user=st.secrets["MYSQL_USER"],
-    database=st.secrets["MYSQL_DB "],
+    database=st.secrets["MYSQL_DB"],
     password=st.secrets["MYSQL_PASSWORD"],
     port=st.secrets["MYSQL_PORT"]
     

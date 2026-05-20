@@ -3,16 +3,16 @@ import mysql.connector
 conn=mysql.connector.connect(
     
     
-    host=st.secrets[""],
-    root=st.secrets[""],
-    database=st.secrets[""],
-    password=st.secrets[""],
-    port=st.secrets[""]
+    host=st.secrets["MYSQL_HOST"],
+    user=st.secrets["MYSQL_USER"],
+    database=st.secrets["MYSQL_DB "],
+    password=st.secrets["MYSQL_PASSWORD"],
+    port=st.secrets["MYSQL_PORT"]
     
 )
 
 
-cursor=conn.cursor()
+cursor=conn.cursor(dictionary=True)
 
 cursor.execute("""
                create table if not exists  users(
@@ -34,7 +34,7 @@ cursor.execute("""
                    file_type varchar(100),
                    file_url text,
                    upload_date timestamp default current_timestamp,
-                   foreign key(user_id) references user(id)
+                   foreign key(user_id) references users(id)
                )
                
                """)
